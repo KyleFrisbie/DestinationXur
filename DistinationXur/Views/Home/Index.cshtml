@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    @*<div class="col-md-3" , id="XurProfile">
+        <img src="https://www.bungie.net//img/destiny_content/vendor/2e59242d28b34a6c8afd148e9f0be471.png" />
+    </div>
+    <div class="col-md-6" , id="XurLocation">
+        <img src="http://www.destinylfg.com/assets/findxur/xur-location-hangar-south.png.pagespeed.ce.NWV7sJv3ZZ.png" />
+    </div>*@
+
+    <div ng-controller="MainController">
+        <div>
+            <h1>{{message}}</h1>
+            <pre>{{xurItems[0].request.Response.data | json}}</pre>
+            @*<h2>{{xurItems}}</h2>*@
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in xurItems">
+                        <td><img ng-src="https://www.bungie.net{{items.request.Response.data.inventoryItem.icon}}"></td>
+                        <td>{{items.request.Response.data.inventoryItem.itemName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
