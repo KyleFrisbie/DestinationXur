@@ -16,14 +16,14 @@
 
         // Test local Xur file
 
-        var getItemDetail = function (item) {
+        //var getItemDetail = function (item) {
 
-            $http.get("/api/Destiny?query=Manifest/InventoryItem/" + item.itemHash + "/")
-            .then(function (response) {
-                console.log(response.data);
-                return response.data;
-            });
-        }
+        //    $http.get("/api/Destiny?query=Manifest/InventoryItem/" + item.itemHash + "/")
+        //    .then(function (response) {
+        //        console.log(response.data);
+        //        return response.data;
+        //    });
+        //}
 
         $http.get("/api/DestinationXur")
             .then(function (response) {

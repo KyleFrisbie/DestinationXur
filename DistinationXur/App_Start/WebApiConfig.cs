@@ -15,6 +15,12 @@ namespace DistinationXur
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "Item",
+                routeTemplate: "api/destiny/item/{id}",
+                defaults: new { controller = "item", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
