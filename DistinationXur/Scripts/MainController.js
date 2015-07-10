@@ -25,7 +25,7 @@
         //    });
         //}
 
-        $http.get("/api/DestinationXur")
+        $http.get("/api/Destiny?query=Advisors/Xur/")
             .then(function (response) {
                 $scope.vendor = response.data;
                 //$scope.saleItems = respose.request.Response.data.saleItemCategories[0].saleItems;
