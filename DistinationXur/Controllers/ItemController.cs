@@ -29,6 +29,8 @@ namespace DistinationXur.Controllers
                 resp.Wait();
 
                 JObject json = JObject.Parse(resp.Result);
+                Item item = new Item(json);
+
                 return Request.CreateResponse(HttpStatusCode.OK, new
                 {
                     request = json
