@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using DistinationXur.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,7 +14,6 @@ namespace DistinationXur.Controllers
     {
         public HttpResponseMessage Get()
         {
-
             // MAKE BUNGIE REQUEST
             using (HttpClientHandler handler = new HttpClientHandler())
             using (HttpClient client = new HttpClient(handler))
@@ -20,16 +21,15 @@ namespace DistinationXur.Controllers
                 Task<HttpResponseMessage> msg;
                 Task<string> resp;
 
-                msg = client.GetAsync("http://localhost:55878/SampleResponse/sampleResponse.txt");
+                msg = client.GetAsync("http://localhost:55878/SampleResponse/ActualXurList.txt");
                 msg.Wait();
 
                 resp = msg.Result.Content.ReadAsStringAsync();
                 resp.Wait();
-
                 JObject json = JObject.Parse(resp.Result);
-                return Request.CreateResponse(HttpStatusCode.OK, new
-                {
-                    request = json
+                
+                return Request.CreateResponse(HttpStatusCode.OK, new {
+                    result = json
                 });
             }
         }

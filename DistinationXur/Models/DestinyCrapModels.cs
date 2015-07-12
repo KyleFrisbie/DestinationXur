@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Web;
 
 namespace DistinationXur.Models
 {
-    class Vendor
+    public class DestinyCrapModels
     {
         public class AckState
         {
@@ -101,6 +102,7 @@ namespace DistinationXur.Models
 
         public class Response
         {
+            [JsonProperty("data")]
             public Data data { get; set; }
         }
 
@@ -110,6 +112,7 @@ namespace DistinationXur.Models
 
         public class Request
         {
+            [JsonProperty("Request")]
             public Response Response { get; set; }
             public int ErrorCode { get; set; }
             public int ThrottleSeconds { get; set; }

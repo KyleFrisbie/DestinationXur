@@ -10,24 +10,39 @@
         <img src="http://www.destinylfg.com/assets/findxur/xur-location-hangar-south.png.pagespeed.ce.NWV7sJv3ZZ.png" />
     </div>*@
 
-    <div ng-controller="MainController">
+    <div ng-controller="MainController" style="margin-top: 50px;">
+        <div class="col-md-12">
+            <div class="progress" ng-show="currentProgress < 100">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{currentProgress}}"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    {{currentProgress}}%
+                </div>
+            </div>
+        </div>
         <div>
-            <h1>{{message}}</h1>
-            <pre>{{vendor | json}}</pre>
+            @*<h1>{{message}}</h1>*@
+            @*<pre>{{vendor | json}}</pre>*@
             @*<pre>{{xurItems[0].request.Response.data | json}}</pre>*@
             @*<h2>{{xurItems}}</h2>*@
 
-            <table>
+
+            
+
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="items in xurItems">
-                        <td><img ng-src="https://www.bungie.net{{items.request.Response.data.inventoryItem.icon}}"></td>
-                        <td>{{items.request.Response.data.inventoryItem.itemName}}</td>
+                        <td><img ng-src="https://www.bungie.net{{items.icon}}"></td>
+                        <td>{{items.name}}</td>
+                        <td>{{items.type}}</td>
+                        <td>{{items.description}}</td>
                     </tr>
                 </tbody>
             </table>
