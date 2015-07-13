@@ -35,8 +35,17 @@
                                         name: resp.data.request.Response.data.inventoryItem.itemName,
                                         description: resp.data.request.Response.data.inventoryItem.itemDescription,
                                         icon: resp.data.request.Response.data.inventoryItem.icon,
-                                        type: resp.data.request.Response.data.inventoryItem.itemTypeName
+                                        type: resp.data.request.Response.data.inventoryItem.itemTypeName,
+                                        primaryStats: saleItem.item.primaryStat
                                     });
+
+                                    //angular.forEach(saleItem.item.stats, function (stats) {
+                                    //    if (stats.saleItem.item.stats.statHash != null) {
+                                    //        xurItems.push({
+                                    //        statHash: stats.saleItem.item.stats.statHash
+                                    //    })
+                                    //    }
+                                    //});
 
                                     if (xurItems.length == total) {
                                         deferred.resolve(xurItems);
