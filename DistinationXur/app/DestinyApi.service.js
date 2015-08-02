@@ -31,12 +31,27 @@
                                         percentage: Math.round((fetchCount / total) * 100)
                                     });
 
+                                    var statType;
+                                    var statValue
+
+                                    if (saleItem.item.primaryStat.statHash != null) {
+                                        //try {
+                                            statType = saleItem.item.primaryStats.statHash;
+                                            statValue = saleItem.item.primaryStats.value;
+                                        //} catch (Error) {
+                                        //    statType = "type";
+                                        //    statValue = "val";
+                                        //}
+                                        
+                                    }
+
                                     xurItems.push({
                                         name: resp.data.request.Response.data.inventoryItem.itemName,
                                         description: resp.data.request.Response.data.inventoryItem.itemDescription,
                                         icon: resp.data.request.Response.data.inventoryItem.icon,
                                         type: resp.data.request.Response.data.inventoryItem.itemTypeName,
-                                        primaryStats: saleItem.item.primaryStat
+                                        primaryStatType: statType,
+                                        privaryStatValue: statValue
                                     });
 
                                     //angular.forEach(saleItem.item.stats, function (stats) {
