@@ -26,11 +26,15 @@
         //    });
         //}
 
-        $scope.xurItems = false;
+        $scope.exoticGear = false;
+        $scope.curios = false;
+        $scope.materialExchange = false;
         $scope.currentProgress = 0;
         DestinyApi.getXurItems().then(
             function (items) {
-                $scope.xurItems = items;
+                $scope.exoticGear = items.exoticGear;
+                $scope.curios = items.curios;
+                $scope.materialExchange = items.materialExchange;
             }, function(resp) {
                 console.error("something went wrong", resp)
             }, function (progress) {

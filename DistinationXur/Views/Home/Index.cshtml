@@ -40,12 +40,65 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="items in xurItems">
+                    <tr ng-repeat="items in exoticGear">
                         <td><img ng-src="https://www.bungie.net{{items.icon}}"></td>
                         <td>{{items.name}}</td>
                         <td>{{items.type}}</td>
                         <td>{{items.description}}</td>
-                        <td>{{items.primaryStatType}} {{items.primaryStatValue}}</td>
+                        <td>
+                            {{items.primaryStatType}} <br />
+                            {{items.privaryStatValue}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>PrimaryStat</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in curios">
+                        <td><img ng-src="https://www.bungie.net{{items.icon}}"></td>
+                        <td>{{items.name}}</td>
+                        <td>{{items.type}}</td>
+                        <td>{{items.description}}</td>
+                        <td>
+                            {{items.primaryStatType}} <br />
+                            {{items.privaryStatValue}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>PrimaryStat</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in materialExchange">
+                        <td><img ng-src="https://www.bungie.net{{items.icon}}"></td>
+                        <td>{{items.name}}</td>
+                        <td>{{items.type}}</td>
+                        <td>{{items.description}}</td>
+                        <td>
+                            {{items.primaryStatType}} <br />
+                            {{items.privaryStatValue}}
+                        </td>
                     </tr>
                 </tbody>
             </table>
