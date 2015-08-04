@@ -17,6 +17,7 @@ namespace DistinationXur
             bundles.Add(new ScriptBundle("~/bundles/destinationXur").Include(
                         "~/Scripts/angular.js",
                         "~/app/app.js",
+                        "~/app/ExoticViewController.js",
                         "~/app/DestinyApi.service.js",
                         "~/app/MainController.js"));
 
