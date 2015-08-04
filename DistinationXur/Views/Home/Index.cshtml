@@ -4,11 +4,11 @@
 
 <div class="row">
     @*<div class="col-md-3" , id="XurProfile">
-        <img src="https://www.bungie.net//img/destiny_content/vendor/2e59242d28b34a6c8afd148e9f0be471.png" />
-    </div>
-    <div class="col-md-6" , id="XurLocation">
-        <img src="http://www.destinylfg.com/assets/findxur/xur-location-hangar-south.png.pagespeed.ce.NWV7sJv3ZZ.png" />
-    </div>*@
+            <img src="https://www.bungie.net//img/destiny_content/vendor/2e59242d28b34a6c8afd148e9f0be471.png" />
+        </div>
+        <div class="col-md-6" , id="XurLocation">
+            <img src="http://www.destinylfg.com/assets/findxur/xur-location-hangar-south.png.pagespeed.ce.NWV7sJv3ZZ.png" />
+        </div>*@
 
     <div ng-controller="MainController" style="margin-top: 50px;">
         <div class="col-md-12">
@@ -20,13 +20,6 @@
             </div>
         </div>
         <div>
-            @*<h1>{{message}}</h1>*@
-            @*<pre>{{vendor | json}}</pre>*@
-            @*<pre>{{xurItems[0].request.Response.data | json}}</pre>*@
-            @*<h2>{{xurItems}}</h2>*@
-
-
-            
 
             <table class="table table-striped">
                 <thead>
@@ -36,6 +29,9 @@
                         <th>Type</th>
                         <th>Description</th>
                         <th>PrimaryStat</th>
+                        <th>PrimaryValue</th>
+                        <th>Currency</th>
+                        <th>Cost</th>
 
                     </tr>
                 </thead>
@@ -45,13 +41,34 @@
                         <td>{{items.name}}</td>
                         <td>{{items.type}}</td>
                         <td>{{items.description}}</td>
-                        <td>
-                            {{items.primaryStatType}} <br />
-                            {{items.privaryStatValue}}
-                        </td>
+                        <td>{{items.primaryStatType}}</td>
+                        <td>{{items.privaryStatValue}}</td>
+                        <td>{{items.costCurrency}}</td>
+                        <td>{{items.costValue}}</td>
                     </tr>
                 </tbody>
             </table>
+
+
+            <!--list perks for each item (images not avaliable at bungie)-->
+            @*<div ng-repeat="items in exoticGear">
+                <img ng-src="https://www.bungie.net{{items.icon}}">
+                <p ng-repeat="perk in items.itemPerks">{{perk}}</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>PerkImg</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="perk in items.itemPerks">
+                            <td><img ng-src="https://www.bungie.net{{perk.iconPath}}"></td>
+                            <td>{{perk.perkHash}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>*@
 
             <table class="table table-striped">
                 <thead>
@@ -60,7 +77,8 @@
                         <th>Name</th>
                         <th>Type</th>
                         <th>Description</th>
-                        <th>PrimaryStat</th>
+                        <th>Currency</th>
+                        <th>Cost</th>
 
                     </tr>
                 </thead>
@@ -70,10 +88,8 @@
                         <td>{{items.name}}</td>
                         <td>{{items.type}}</td>
                         <td>{{items.description}}</td>
-                        <td>
-                            {{items.primaryStatType}} <br />
-                            {{items.privaryStatValue}}
-                        </td>
+                        <td>{{items.costCurrency}}</td>
+                        <td>{{items.costValue}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -85,7 +101,8 @@
                         <th>Name</th>
                         <th>Type</th>
                         <th>Description</th>
-                        <th>PrimaryStat</th>
+                        <th>Currency</th>
+                        <th>Cost</th>
 
                     </tr>
                 </thead>
@@ -95,10 +112,8 @@
                         <td>{{items.name}}</td>
                         <td>{{items.type}}</td>
                         <td>{{items.description}}</td>
-                        <td>
-                            {{items.primaryStatType}} <br />
-                            {{items.privaryStatValue}}
-                        </td>
+                        <td>{{items.costCurrency}}</td>
+                        <td>{{items.costValue}}</td>
                     </tr>
                 </tbody>
             </table>

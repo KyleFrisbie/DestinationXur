@@ -10,9 +10,11 @@
             var deferred = $q.defer();
 
             var hashTypes = {
-                                3897883278: "Defense",
-                                368428387: "Attack"
-                            }
+                3897883278: "Defense",
+                368428387: "Attack",
+                1738186005: "Strange Coin",
+                937555249: "Mote of Light"
+            };
 
 
             // to get xur: /api/Destiny?query=Advisors/Xur/
@@ -41,23 +43,31 @@
                                         percentage: Math.round((fetchCount / total) * 100)
                                     });
 
-                                    var statType;
-                                    var statValue
-
-                                    if (angular.isDefined(saleItem.item.primaryStat)) {
-                                        statType = hashTypes[saleItem.item.primaryStat.statHash];
-                                        statValue = saleItem.item.primaryStat.value;
-                                    }
+                                    var costs = saleItem.costs;
 
                                     if (saleItemCat.categoryTitle == "Exotic Gear") {
+
+                                        var statType;
+                                        var statValue;
+                                        var perks = [];
+
+                                        if (angular.isDefined(saleItem.item.primaryStat)) {
+                                            statType = hashTypes[saleItem.item.primaryStat.statHash];
+                                            statValue = saleItem.item.primaryStat.value;
+                                            perks = saleItem.item.perks;
+                                        }
+
                                         exoticGear.push({
                                             name: resp.data.request.Response.data.inventoryItem.itemName,
                                             description: resp.data.request.Response.data.inventoryItem.itemDescription,
                                             icon: resp.data.request.Response.data.inventoryItem.icon,
                                             type: resp.data.request.Response.data.inventoryItem.itemTypeName,
-                                            primaryStat: saleItem.item.primarystats,
                                             primaryStatType: statType,
-                                            privaryStatValue: statValue
+                                            privaryStatValue: statValue,
+                                            costCurrency: hashTypes[costs[0].itemHash],
+                                            costValue: costs[0].value,
+                                            itemPerks : perks
+
                                         });
                                     } else if (saleItemCat.categoryTitle == "Curios") {
                                         curios.push({
@@ -65,9 +75,8 @@
                                             description: resp.data.request.Response.data.inventoryItem.itemDescription,
                                             icon: resp.data.request.Response.data.inventoryItem.icon,
                                             type: resp.data.request.Response.data.inventoryItem.itemTypeName,
-                                            primaryStat: saleItem.item.primarystats,
-                                            primaryStatType: statType,
-                                            privaryStatValue: statValue
+                                            costCurrency: hashTypes[costs[0].itemHash],
+                                            costValue: costs[0].value
                                         });
                                     } else {
                                         materialExchange.push({
@@ -75,9 +84,8 @@
                                             description: resp.data.request.Response.data.inventoryItem.itemDescription,
                                             icon: resp.data.request.Response.data.inventoryItem.icon,
                                             type: resp.data.request.Response.data.inventoryItem.itemTypeName,
-                                            primaryStat: saleItem.item.primarystats,
-                                            primaryStatType: statType,
-                                            privaryStatValue: statValue
+                                            costCurrency: hashTypes[costs[0].itemHash],
+                                            costValue: costs[0].value
                                         });
                                     }
 
@@ -92,6 +100,7 @@
                                         console.log(exoticGear);
                                         console.log(curios);
                                         console.log(materialExchange);
+                                        console.log(costs)
                                     }
                                 });
                         })
@@ -185,7 +194,7 @@
 //                                        });
 //                                    }
 
-                                    
+
 
 //                                    if ((exoticGear.length + curios.length + materialExchange.length) == total) {
 //                                        deferred.resolve({
