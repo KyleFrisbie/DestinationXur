@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module("bungieViewer", []);
+    angular.module("bungieViewer", ['ui.bootstrap']);
 })();

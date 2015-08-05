@@ -19,7 +19,9 @@ namespace DistinationXur
                         "~/app/app.js",
                         "~/app/ExoticViewController.js",
                         "~/app/DestinyApi.service.js",
-                        "~/app/MainController.js"));
+                        "~/app/MainController.js",
+                        "~/Scripts/angular-ui/ui-bootstrap-tpls.js"
+                        ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -31,6 +33,7 @@ namespace DistinationXur
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/ui-bootstrap-csp.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }

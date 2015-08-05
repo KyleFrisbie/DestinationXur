@@ -2,8 +2,8 @@
     angular.module("bungieViewer")
     .controller('MainController', MainController);
 
-    MainController.$inject = ['$scope', '$http', 'DestinyApi'];
-    function MainController($scope, $http, DestinyApi) {
+    MainController.$inject = ['$position','$scope', '$http', 'DestinyApi'];
+    function MainController($position, $scope, $http, DestinyApi) {
 
         //$http.get("/api/Destiny?query=Advisors/Xur/")
         //    .then(function (response) {
