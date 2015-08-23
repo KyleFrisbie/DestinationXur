@@ -23,7 +23,7 @@
             @*<button popover="I appeared on mouse enter!" popover-trigger="mouseenter" class="btn btn-default">Mouseenter</button>*@
 
             <div ng-repeat="items in exoticGear">
-                <button popover-template="exoticTemplate.html" popover-title="{{items.name}}" popover="{{items.description}}"popover-trigger="mouseenter" class="btn btn-default"><img ng-src="https://www.bungie.net{{items.icon}}"></button>
+                <button popover-template="exoticTemplate.html" popover-placement="auto" popover-title="{{items.name}}" popover="{{items.description}}"popover-trigger="mouseenter" class="btn btn-default"><img ng-src="https://www.bungie.net{{items.icon}}"></button>
 
                 <script type="text/ng-template" ng-model="exoticTemplate.html">
                     <div>
